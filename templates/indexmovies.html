@@ -1,0 +1,67 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaVerse</title>
+    <link rel = "icon" href = "/static/icon1.png" 
+        type = "image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylemovies.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <a href="/"><img src="{{ url_for('static', filename='logopirate.jpg') }}" alt="Logo" class="logo"></a>
+                <h1 class="title">NexaVerse</h1>
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/indexmovies">EXPERTS</a></li>
+                    <!-- <li><a href="/indexveh">VEHICLES</a></li> -->
+                    <!-- <li><a href="/templates/indexcllge.html">COLLEGE</a></li> -->
+                    <li><a href="/templates/contact.html">CONTACT US</a></li>
+                </ul>
+            </aside>
+    <main>
+        <form method="POST">
+            <style>label{font-weight: bolder;
+            color: black;}</style>
+            <label for="topic">ENTER THE FIELD YOU NEED THE EXPERT FOR: </label>
+            <input type="text" id="topic" name="topic" required>
+            <input type="submit" value="Search">
+        </form>
+        {% if topic %}
+            <div class="result">
+                {% if best_teacher %}
+                    <h3>The best teacher for <strong id="topic-highlight">{{ topic.capitalize() }}</strong> is:</h3>
+                    <ul>
+                        {% for teacher in best_teacher %}
+                            <!-- Add the data-tooltip attribute for the tooltip content -->
+                            <li class="result-item" data-tooltip="{{ teacher }}">{{ teacher }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="error">{{ message }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </main>
+    
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='scriptmovies.js') }}"></script> <!-- Include JavaScript file -->
+</body>
+</html>

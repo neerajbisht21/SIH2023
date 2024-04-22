@@ -1,0 +1,97 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaVerse</title>
+    <link rel = "icon" href = "/static/icon1.png" 
+        type = "image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <a href="/"><img src="{{ url_for('static', filename='logopirate.jpg') }}" alt="Logo" class="logo"></a>
+                <h1 class="title">NexaVerse</h1>
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/indexmovies">EXPERTS</a></li>
+                    <!-- <li><a href="/indexveh">VEHICLES</a></li> -->
+                    <!-- <li><a href="/templates/indexcllge.html">COLLEGE</a></li> -->
+                    <li><a href="/templates/contact.html">CONTACT US</a></li>
+                </ul>
+            </aside>
+        <main>
+            <form id="search-form" method="POST">
+                <style>
+                    label {
+                        font-weight: bolder;
+                        color: black;
+                    }
+                </style>
+                <label for="topic">ENTER THE TOPIC YOU NEED A TEACHER FOR:</label>
+                <input type="text" id="topic" name="topic" required>
+                <input type="submit" value="Search">
+            </form>
+        
+            <!-- Learning mode question initially hidden -->
+            <div id="learning-mode-question" style="display: none;">
+                <label for="learning-mode">Select Learning Mode:</label>
+                <select id="learning-mode" name="learning-mode" required>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                </select>
+                <br>
+                <label for="expertise-level">Select Expertise Level:</label>
+                <select id="expertise-level" name="expertise-level" required>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <br>
+                <label>Are you looking for:</label>
+                <input type="radio" name="lesson-type" id="free-lessons" value="free" required>
+                <label for="free-lessons">Free Lessons</label>
+                <input type="radio" name="lesson-type" id="paid-lessons" value="paid" required>
+                <label for="paid-lessons">Paid Lessons</label>
+                <br>
+                <button id="next-button">Next</button>
+            </div>
+            <div id="result" style="display: none;">
+                <h3>The best teacher for <strong id="topic-highlight"></strong> in <span id="learning-mode-highlight"></span> mode is:</h3>
+                <p id="best-teacher"></p>
+            </div>
+        
+            {% if topic %}
+                <div class="result">
+                    {% if best_teacher %}
+                        <h3>The best teacher for <strong id="topic-highlight">{{ topic.capitalize() }}</strong> is:</h3>
+                        <ul id="teacher-list">
+                            <!-- Teachers will be added here dynamically -->
+                        </ul>
+                    {% else %}
+                        <p class="error">{{ message }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+        </main>
+    
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Include JavaScript file -->
+</body>
+</html>

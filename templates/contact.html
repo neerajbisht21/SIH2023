@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/static/constyles.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="/"><img src="{{ url_for('static', filename='logopirate.jpg') }}" alt="Logo" class="logo"></a>
+            <h1 class="title">Contact Us</h1>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="hamburger-icon" id="hamburger-icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </header>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/indexmovies">EXPERTS</a></li>
+            <!-- <li><a href="/indexveh">VEHICLES</a></li> -->
+            <!-- <li><a href="/templates/indexcllge.html">COLLEGE</a></li> -->
+            <li><a href="/templates/contact.html">CONTACT US</a></li>
+        </ul>
+    </aside>
+    <main>
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or inquiries, please don't hesitate to get in touch with us.</p>
+            <address>
+                <style>p{color: black;}</style>
+                <p><strong>Address:</strong> 123 Main Street, City, State, Zip Code</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@example.com">cyberpirates06@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+123456789">+123-456-789</a></p>
+            </address>
+        </section>
+        <section class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="process_contact.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p class="copyright">&copy; 2023 NEXAVERSE</p>
+        <style>.copyright{color: aliceblue;
+                        margin-left: 10px;}</style>
+    </footer>
+    <script src="{{ url_for('static', filename='conscript.js') }}"></script> <!-- Include JavaScript file -->
+</body>
+</html>

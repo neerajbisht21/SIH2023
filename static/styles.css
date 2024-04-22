@@ -1,0 +1,291 @@
+
+/* static/styles.css */
+body {
+    background-image: url('/static/library_books_bookshelves_interior_4k_hd_travel-2560x1440.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.57);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Align content to the right */
+    align-items: center;
+}
+
+/* Styles for the circular logo */
+.logo-container {
+    
+    display: flex;
+    align-items: center;
+    margin-left: 2%; /* Shift the logo 5% to the right */
+    margin-right: 40px; /* Add spacing between the logo and text */
+}
+
+.logo {
+    width: 70px; /* Adjust the size of the logo as needed */
+    height: 70px; /* Adjust the size of the logo as needed */
+    border-radius: 50%; /* Create a circular shape */
+}
+
+/* Flash animation for the title  */
+.title {
+    font-size: 40px; /* Increase the text size */
+    animation: flash 0.5s infinite alternate; /* Add a flash animation */
+    margin-left: 10%;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        opacity: 0.5; /* Fully hidden */
+    }
+}
+
+
+
+
+/* Main content styles */
+main {
+    background-color: rgba(255, 255, 255, 0.708);
+    max-width: 600px; /* Adjust the width of the main content as needed */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional styles for elements inside the main element */
+main h1 {
+    font-size: 32px; /* Increase the font size */
+}
+
+main form {
+    padding: 30px; /* Increase the padding */
+}
+
+main label {
+    font-size: 20px; /* Increase the font size */
+}
+
+main input[type="text"] {
+    width: 100%;
+    padding: 15px; /* Increase the padding */
+}
+
+main input[type="submit"] {
+    padding: 15px 30px; /* Increase the padding */
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text within the form */
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#topic-highlight {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#topic-highlight:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+
+/* Hamburger icon styles */
+.menu-icon {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.line {
+    width: 30px; /* Adjust the width of each line as needed */
+    height: 4px; /* Adjust the height of each line as needed */
+    background-color: #333; /* Adjust the color as needed */
+    margin: 6px 0; /* Adjust the spacing between lines as needed */
+    border-radius: 4px; /* Create rounded corners for lines (optional) */
+    display: block;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #333;
+    background-image: url("./sidebar_background.jpeg");
+    color: #fff;
+    width: 12%; /* Set the width to 10% */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hide the sidebar initially */
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    overflow-x: hidden;
+    background-size: contain;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    text-align: center;
+}
+.sidebar.active {
+    right: 0; /* Display the sidebar when active */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.sidebar ul li a {
+    text-decoration:solid;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.sidebar ul li a:hover {
+    color: #ccc;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.dialog-box {
+    display: none;
+    position: absolute;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1; /* Ensure it's above other elements */
+}
+
+.result-item:hover + .dialog-box {
+    display: block;
+}
+
+/* Style for the dialog text */
+.dialog-text {
+    margin: 0;
+}
+
+.result-item::before {
+    content: attr(data-tooltip); /* Set the content of the tooltip */
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1; /* Ensure it's above other elements */
+    white-space: nowrap; /* Prevent line breaks in the tooltip */
+}
+
+.result-item:hover::before {
+    display: block;
+}
+/* Add these styles to your CSS */
+.teacher-info {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+    white-space: nowrap;
+    max-width: 200px; /* Adjust the maximum width as needed */
+}
+
+.teacher-info h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.teacher-info p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+    max-width: 300px; /* Set a maximum width for the tooltip */
+    word-wrap: break-word; /* Allow long words to break into the next line */
+    white-space: normal; /* Allow text to wrap to the next line */
+    left: 15%; /* Position the tooltip to the right of the result (teacher name) */
+    /* top: 0; Align the top of the tooltip with the top of the result (teacher name) */
+}
+
+.result-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.result-item:hover .tooltip {
+    display: block;
+    top: -30px; /* Position just above the result item */
+    left: 0;
+}

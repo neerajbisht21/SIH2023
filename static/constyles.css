@@ -1,0 +1,174 @@
+/* Reset some default styles */
+body {
+    background-image: url('/static/library_books_bookshelves_interior_4k_hd_travel-2560x1440.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.57);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Align content to the right */
+    align-items: center;
+}
+/* Adjust the .title and .logo-container styles in your CSS */
+.title {
+    font-size: 40px; /* Increase the text size */
+    animation: flash 0.5s infinite alternate; /* Add a flash animation */
+    white-space: nowrap; /* Prevent line breaks in the title */
+    overflow: hidden; /* Hide any overflow */
+    text-overflow: ellipsis; /* Add an ellipsis for overflow text (optional) */
+    
+}
+@keyframes flash {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        opacity: 0.5; /* Fully hidden */
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.logo {
+    width: 70px; /* Adjust the size of the logo as needed */
+    height: 70px; /* Adjust the size of the logo as needed */
+    border-radius: 50%; /* Create a circular shape */
+    margin-right: 10px; /* Add some spacing between the logo and the title */
+    /* margin-left: 2%; */
+}
+
+
+main {
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 600px; /* Adjust the width of the main content as needed */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    align-self: center;
+}
+
+.contact-info, .contact-form {
+    margin-bottom: 20px;
+}
+
+.contact-info h2, .contact-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+}
+
+.address p, .contact-form label {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+/* Sidebar styles */
+.sidebar {
+    background-color: #333;
+    background-image: url("./sidebar_background.jpeg");
+    color: #fff;
+    width: 12%; /* Set the width to 10% */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hide the sidebar initially */
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    overflow-x: hidden;
+    background-size: contain;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    text-align: center;
+}
+.sidebar.active {
+    right: 0; /* Display the sidebar when active */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.sidebar ul li a {
+    text-decoration:solid;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.sidebar ul li a:hover {
+    color: #ccc;
+}
+
+.hamburger-icon {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+.hamburger-icon .line {
+    width: 30px; /* Adjust the width of each line as needed */
+    height: 4px; /* Adjust the height of each line as needed */
+    background-color: #333; /* Adjust the color as needed */
+    margin: 6px 0; /* Adjust the spacing between lines as needed */
+    border-radius: 4px; /* Create rounded corners for lines (optional) */
+    display: block;
+}
